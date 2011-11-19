@@ -3,17 +3,21 @@
 require 'rubygems'
 require 'selenium-webdriver'
 
-driver = Selenium::WebDriver.for :firefox
-driver.get "http://www.baidu.com"
+[:firefox, :chrome].each do |browser|
+  puts "Selenium by #{browser} begin"
 
-element = driver.find_element :id => "kw"
-element.send_keys "selenium"
-element.submit
+  driver = Selenium::WebDriver.for browser
+  driver.get "http://www.baidu.com"
 
-puts "Page title is #{driver.title}"
+  element = driver.find_element :id => "kw"
+  element.send_keys "selenium"
+  element.submit
 
-wait = Selenium::WebDriver::Wait.new(:timeout => 10)
-wait.until { driver.title.downcase.start_with? "selenium" }
+  # wait = Selenium::WebDriver::Wait.new(:timeout => 10)
+  # wait.until { driver.title.downcase.start_with? "selenium" }
 
-puts "Page title is #{driver.title}"
-driver.quit
+  # puts "Page title is #{driver.title}"
+  driver.quit
+
+  puts "Selenium by #{browser} end"
+end
