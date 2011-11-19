@@ -1,3 +1,5 @@
+# http://code.google.com/p/selenium/wiki/RubyBindings
+
 require 'rubygems'
 require 'selenium-webdriver'
 
