@@ -11,7 +11,7 @@ element.submit
 puts "Page title is #{driver.title}"
 
 wait = Selenium::WebDriver::Wait.new(:timeout => 10)
-wait.until { driver.title.downcase.start_with? "cheese!" }
+wait.until { driver.title.downcase.start_with? "selenium" }
 
 puts "Page title is #{driver.title}"
 driver.quit
